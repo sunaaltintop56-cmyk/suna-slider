@@ -1,0 +1,273 @@
+<style>
+#sdnslider{width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:normal;}
+#sdnslider .sw{width:100%;height:460px;overflow:hidden;position:relative;}
+#sdnslider .st{display:flex;height:100%;will-change:transform;}
+#sdnslider .sl{min-width:100%;height:100%;display:flex;flex-direction:column;overflow:hidden;position:relative;}
+#sdnslider .sl-main{display:flex;align-items:stretch;flex:1;min-height:0;}
+#sdnslider .sl-left{flex:1;display:flex;flex-direction:column;justify-content:center;padding:28px 36px;z-index:2;}
+#sdnslider .sl-right{width:38%;display:flex;align-items:center;justify-content:center;padding:20px;flex-shrink:0;z-index:2;}
+#sdnslider .sl-bottom{display:flex;align-items:center;justify-content:center;gap:0;padding:0 20px 10px;flex-shrink:0;}
+#sdnslider .sl-sym{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;padding:8px 6px;border-radius:10px;background:rgba(255,255,255,.1);margin:0 4px;}
+#sdnslider .sl-sym-e{font-size:20px;line-height:1;}
+#sdnslider .sl-sym-t{font-size:10px;font-weight:700;color:rgba(255,255,255,.9);text-align:center;line-height:1.2;}
+#sdnslider .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:10px;}
+#sdnslider h2{font-size:26px;font-weight:700;line-height:1.25;margin-bottom:8px;color:#fff;}
+#sdnslider h2 span{display:block;}
+#sdnslider p{font-size:13px;line-height:1.6;margin-bottom:12px;opacity:.88;color:#fff;max-width:400px;}
+#sdnslider .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+#sdnslider .tag{font-size:11px;font-weight:600;padding:4px 10px;border-radius:12px;}
+#sdnslider .btn-row{display:flex;gap:8px;flex-wrap:wrap;}
+#sdnslider .btn1{display:inline-flex;align-items:center;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:700;border:none;cursor:pointer;text-decoration:none;transition:opacity .2s;}
+#sdnslider .btn1:hover{opacity:.85;}
+#sdnslider .btn2{display:inline-flex;align-items:center;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;border-width:1.5px;border-style:solid;background:transparent;transition:opacity .2s;}
+#sdnslider .btn2:hover{opacity:.75;}
+#sdnslider .jar-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;}
+#sdnslider .jar{padding:12px 8px;border-radius:10px;display:flex;flex-direction:column;align-items:center;gap:5px;border:1.5px solid rgba(255,255,255,.22);}
+#sdnslider .jar-e{font-size:26px;line-height:1;}
+#sdnslider .jar-n{font-size:11px;font-weight:600;text-align:center;line-height:1.3;}
+#sdnslider .check-list{display:flex;flex-direction:column;gap:7px;width:100%;}
+#sdnslider .check-row{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;font-size:13px;font-weight:600;}
+#sdnslider .num-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;}
+#sdnslider .num-card{border-radius:10px;padding:12px;text-align:center;border:1.5px solid rgba(255,255,255,.2);}
+#sdnslider .num-big{font-size:22px;font-weight:700;line-height:1;}
+#sdnslider .num-lbl{font-size:10px;margin-top:4px;opacity:.75;color:rgba(255,255,255,.8);}
+#sdnslider .pill-wrap{display:flex;flex-direction:column;gap:7px;width:100%;}
+#sdnslider .prod-pill{padding:9px 12px;border-radius:8px;font-size:13px;font-weight:600;border:1.5px solid rgba(255,255,255,.22);display:flex;align-items:center;gap:8px;}
+#sdnslider .adv-grid{display:flex;flex-direction:column;gap:7px;width:100%;}
+#sdnslider .adv-row{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:8px;font-size:13px;font-weight:600;}
+#sdnslider .sdnnav{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:7px;z-index:10;}
+#sdnslider .sdndot{height:7px;border-radius:50%;cursor:pointer;border:none;transition:all .3s;padding:0;display:inline-block;}
+#sdnslider .arr{position:absolute;top:42%;transform:translateY(-50%);z-index:10;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;transition:background .2s;padding:0;}
+#sdnslider .arr:hover{background:rgba(255,255,255,.28);}
+#sdnslider .arr-l{left:10px;}
+#sdnslider .arr-r{right:10px;}
+#sdnslider .arr svg{width:1em;height:1em;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+@media(max-width:680px){
+#sdnslider .sw{height:auto;min-height:400px;}
+#sdnslider .sl-main{flex-direction:column;}
+#sdnslider .sl-left{width:100%;padding:20px 16px 8px;}
+#sdnslider .sl-right{width:100%;padding:0 16px 8px;}
+#sdnslider h2{font-size:19px;}
+#sdnslider p{font-size:12px;margin-bottom:10px;}
+#sdnslider .jar-grid{grid-template-columns:repeat(4,1fr);}
+#sdnslider .num-grid{grid-template-columns:repeat(4,1fr);}
+#sdnslider .check-list{flex-direction:row;flex-wrap:wrap;}
+#sdnslider .check-row{flex:1;min-width:44%;}
+#sdnslider .pill-wrap{flex-direction:row;flex-wrap:wrap;}
+#sdnslider .prod-pill{flex:1;min-width:44%;}
+#sdnslider .adv-grid{flex-direction:row;flex-wrap:wrap;}
+#sdnslider .adv-row{flex:1;min-width:44%;}
+#sdnslider .sl-sym-t{font-size:9px;}
+}
+</style>
+
+<div id="sdnslider">
+<div class="sw">
+<div class="st" id="sdn-st">
+
+<!-- SLIDE 1: REÇELLER -->
+<div class="sl" style="background:#7a2010">
+<div class="sl-main">
+<div class="sl-left">
+<div class="badge" style="background:rgba(250,199,117,.22);color:#FAC775">Reçeller & Marmelatlar</div>
+<h2>Bir balkabağıyla başladı,<br><span style="color:#FAC775">bugün 80+ çeşide ulaştı</span></h2>
+<div class="tags">
+<span class="tag" style="background:rgba(250,199,117,.2);color:#FAC775">Ayva</span>
+<span class="tag" style="background:rgba(250,199,117,.2);color:#FAC775">Cevizli İncir</span>
+<span class="tag" style="background:rgba(250,199,117,.2);color:#FAC775">Gül</span>
+<span class="tag" style="background:rgba(250,199,117,.2);color:#FAC775">Böğürtlen</span>
+<span class="tag" style="background:rgba(250,199,117,.2);color:#FAC775">Kestane</span>
+</div>
+<p>Tatlandırıcı yok, renklendirici yok. Sadece meyve, şeker ve sevgi. Nazilli'den sofralarınıza.</p>
+<div class="btn-row">
+<a href="https://sunadandogalurunler.com/receller-marmelatlar" class="btn1" style="background:#FAC775;color:#412402;">Reçelleri gör →</a>
+</div>
+</div>
+<div class="sl-right">
+<div class="jar-grid">
+<div class="jar" style="background:rgba(250,199,117,.18)"><span class="jar-e">🍑</span><span class="jar-n" style="color:#FAC775">Kayısı</span></div>
+<div class="jar" style="background:rgba(250,199,117,.18)"><span class="jar-e">🫐</span><span class="jar-n" style="color:#FAC775">Böğürtlen</span></div>
+<div class="jar" style="background:rgba(250,199,117,.18)"><span class="jar-e">🌹</span><span class="jar-n" style="color:#FAC775">Gül</span></div>
+<div class="jar" style="background:rgba(250,199,117,.18)"><span class="jar-e">🌰</span><span class="jar-n" style="color:#FAC775">Kestane</span></div>
+</div>
+</div>
+</div>
+<div class="sl-bottom">
+<div class="sl-sym"><span class="sl-sym-e">👩‍🍳</span><span class="sl-sym-t">Kadın Üretici</span></div>
+<div class="sl-sym"><span class="sl-sym-e">🌿</span><span class="sl-sym-t">Sıfır Katkı</span></div>
+<div class="sl-sym"><span class="sl-sym-e">🏡</span><span class="sl-sym-t">El Yapımı</span></div>
+<div class="sl-sym"><span class="sl-sym-e">🌾</span><span class="sl-sym-t">Mevsimlik</span></div>
+<div class="sl-sym"><span class="sl-sym-e">🫙</span><span class="sl-sym-t">80+ Çeşit</span></div>
+</div>
+</div>
+
+<!-- SLIDE 2: KATKISIZ -->
+<div class="sl" style="background:#0f5c2e">
+<div class="sl-main">
+<div class="sl-left">
+<div class="badge" style="background:rgba(159,225,203,.2);color:#9FE1CB">Katkısız üretim</div>
+<h2>Fabrika değil,<br><span style="color:#9FE1CB">kendi ellerimle hazırlıyorum</span></h2>
+<p>Her kavanoz kendi mutfağımdan çıkıyor. Mevsiminde toplanan, ilaçsız yetiştirilen ürünler. Suna Altıntop, Nazilli.</p>
+<div class="btn-row">
+<a href="https://sunadandogalurunler.com/kahvaltiliklar" class="btn1" style="background:#9FE1CB;color:#04342C;">Tüm ürünler →</a>
+<a href="https://sunadandogalurunler.com/pages/iletisim" class="btn2" style="color:#9FE1CB;border-color:rgba(159,225,203,.45);">Bizi tanı</a>
+</div>
+</div>
+<div class="sl-right">
+<div class="check-list">
+<div class="check-row" style="background:rgba(159,225,203,.15);color:#9FE1CB">✅ 100% mevsim ürünü</div>
+<div class="check-row" style="background:rgba(159,225,203,.15);color:#9FE1CB">✅ Geleneksel yöntem</div>
+<div class="check-row" style="background:rgba(159,225,203,.15);color:#9FE1CB">🚫 Tatlandırıcı yok</div>
+<div class="check-row" style="background:rgba(159,225,203,.15);color:#9FE1CB">🚫 Renklendirici yok</div>
+<div class="check-row" style="background:rgba(159,225,203,.15);color:#9FE1CB">🚫 Koruyucu yok</div>
+</div>
+</div>
+</div>
+<div class="sl-bottom">
+<div class="sl-sym"><span class="sl-sym-e">👩‍🍳</span><span class="sl-sym-t">Kadın Üretici</span></div>
+<div class="sl-sym"><span class="sl-sym-e">🌞</span><span class="sl-sym-t">Güneşte Büyür</span></div>
+<div class="sl-sym"><span class="sl-sym-e">👐</span><span class="sl-sym-t">Özenle Hazırlanır</span></div>
+<div class="sl-sym"><span class="sl-sym-e">🏡</span><span class="sl-sym-t">Ev Mutfağı</span></div>
+<div class="sl-sym"><span class="sl-sym-e">🤝</span><span class="sl-sym-t">Güvenilir</span></div>
+</div>
+</div>
+
+<!-- SLIDE 3: SOSLAR -->
+<div class="sl" style="background:#2d0a00">
+<div class="sl-main">
+<div class="sl-left">
+<div class="badge" style="background:rgba(240,153,123,.2);color:#F0997B">Soslar & Kışlık</div>
+<h2>Yazın közlenen biber,<br><span style="color:#F0997B">kışın sofranızda</span></h2>
+<p>Acuka, közlenmiş patlıcan, menemen, tarhana… Ege'nin kışlık hazırlıkları artık kapınıza geliyor.</p>
+<div class="btn-row">
+<a href="https://sunadandogalurunler.com/kislik-gida-konserve" class="btn1" style="background:#F0997B;color:#4A1B0C;">Kışlıkları keşfet →</a>
+</div>
+</div>
+<div class="sl-right">
+<div class="pill-wrap">
+<div class="prod-pill" style="background:rgba(240,153,123,.15);color:#F0997B">🌶️ Acuka</div>
+<div class="prod-pill" style="background:rgba(240,153,123,.15);color:#F0997B">🍅 Domates Salçası</div>
+<div class="prod-pill" style="background:rgba(240,153,123,.15);color:#F0997B">🍆 Közlenmiş Patlıcan</div>
+<div class="prod-pill" style="background:rgba(240,153,123,.15);color:#F0997B">🥘 Menemen</div>
+<div class="prod-pill" style="background:rgba(240,153,123,.15);color:#F0997B">🌿 Tarhana & Erişte</div>
+</div>
+</div>
+</div>
+<div class="sl-bottom">
+<div class="sl-sym"><span class="sl-sym-e">🔥</span><span class="sl-sym-t">Közde Pişer</span></div>
+<div class="sl-sym"><span class="sl-sym-e">🫙</span><span class="sl-sym-t">Kavanozda Gelir</span></div>
+<div class="sl-sym"><span class="sl-sym-e">🌾</span><span class="sl-sym-t">Tarladan Gelir</span></div>
+<div class="sl-sym"><span class="sl-sym-e">❄️</span><span class="sl-sym-t">Kışa Hazır</span></div>
+<div class="sl-sym"><span class="sl-sym-e">🍽️</span><span class="sl-sym-t">Sofraya Hazır</span></div>
+</div>
+</div>
+
+<!-- SLIDE 4: NEDEN SUNA'DAN -->
+<div class="sl" style="background:#1a1035">
+<div class="sl-main">
+<div class="sl-left">
+<div class="badge" style="background:rgba(175,169,236,.2);color:#AFA9EC">Neden Suna'dan?</div>
+<h2>Binlerce mutlu sofranın<br><span style="color:#AFA9EC">sıfır katkısı</span></h2>
+<p>"Suna abla reçelini 2 yaşındaki oğlum kaşıkla yemek istiyor, sofradan kaldırıyorum." — Gerçek müşteri yorumu.</p>
+<div class="btn-row">
+<a href="https://sunadandogalurunler.com" class="btn1" style="background:#AFA9EC;color:#26215C;">Alışverişe başla →</a>
+</div>
+</div>
+<div class="sl-right">
+<div class="num-grid">
+<div class="num-card"><div class="num-big" style="color:#AFA9EC">80+</div><div class="num-lbl">Ürün çeşidi</div></div>
+<div class="num-card"><div class="num-big" style="color:#AFA9EC">0</div><div class="num-lbl">Katkı maddesi</div></div>
+<div class="num-card"><div class="num-big" style="color:#AFA9EC">Nazilli</div><div class="num-lbl">Kendi bahçemiz</div></div>
+<div class="num-card"><div class="num-big" style="color:#AFA9EC">⭐⭐⭐⭐⭐</div><div class="num-lbl">Yüzlerce yorum</div></div>
+</div>
+</div>
+</div>
+<div class="sl-bottom">
+<div class="sl-sym"><span class="sl-sym-e">⭐</span><span class="sl-sym-t">Yüzlerce Yorum</span></div>
+<div class="sl-sym"><span class="sl-sym-e">📦</span><span class="sl-sym-t">Güvenli Paket</span></div>
+<div class="sl-sym"><span class="sl-sym-e">🔄</span><span class="sl-sym-t">İade Garantisi</span></div>
+<div class="sl-sym"><span class="sl-sym-e">🚚</span><span class="sl-sym-t">Hızlı Kargo</span></div>
+<div class="sl-sym"><span class="sl-sym-e">💚</span><span class="sl-sym-t">Doğal & Sağlıklı</span></div>
+</div>
+</div>
+
+<!-- SLIDE 5: AVANTAJLAR -->
+<div class="sl" style="background:#0c2d4a">
+<div class="sl-main">
+<div class="sl-left">
+<div class="badge" style="background:rgba(133,183,235,.2);color:#85B7EB">Avantajlar</div>
+<h2>İlk siparişinde<br><span style="color:#85B7EB">%10 indirim seni bekliyor</span></h2>
+<p>Üye ol, kazanmaya başla. 1500 TL üzeri siparişlerde kargo bizden. Aynı gün hazırlık.</p>
+<div class="btn-row">
+<a href="https://sunadandogalurunler.com/account/register" class="btn1" style="background:#85B7EB;color:#042C53;">Üye ol, %10 kazan →</a>
+<a href="https://sunadandogalurunler.com" class="btn2" style="color:#85B7EB;border-color:rgba(133,183,235,.4);">Alışverişe başla</a>
+</div>
+</div>
+<div class="sl-right">
+<div class="adv-grid">
+<div class="adv-row" style="background:rgba(133,183,235,.15);color:#85B7EB">🎁 İlk siparişte %10 indirim</div>
+<div class="adv-row" style="background:rgba(133,183,235,.15);color:#85B7EB">🚚 1500 TL üzeri kargo bedava</div>
+<div class="adv-row" style="background:rgba(133,183,235,.15);color:#85B7EB">🔒 Güvenli ödeme</div>
+<div class="adv-row" style="background:rgba(133,183,235,.15);color:#85B7EB">📦 Aynı gün hazırlık</div>
+</div>
+</div>
+</div>
+<div class="sl-bottom">
+<div class="sl-sym"><span class="sl-sym-e">🎁</span><span class="sl-sym-t">%10 İndirim</span></div>
+<div class="sl-sym"><span class="sl-sym-e">🚚</span><span class="sl-sym-t">Ücretsiz Kargo</span></div>
+<div class="sl-sym"><span class="sl-sym-e">🔒</span><span class="sl-sym-t">SSL Güvenli</span></div>
+<div class="sl-sym"><span class="sl-sym-e">📦</span><span class="sl-sym-t">Aynı Gün</span></div>
+<div class="sl-sym"><span class="sl-sym-e">💳</span><span class="sl-sym-t">Kolay Ödeme</span></div>
+</div>
+</div>
+
+</div>
+<button class="arr arr-l" id="sdn-prv" aria-label="Önceki"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+<button class="arr arr-r" id="sdn-nxt" aria-label="Sonraki"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+<div class="sdnnav" id="sdn-nav"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var st=document.getElementById('sdn-st');
+  var nav=document.getElementById('sdn-nav');
+  var N=5,cur=0,tmr;
+  var dc=['#FAC775','#9FE1CB','#F0997B','#AFA9EC','#85B7EB'];
+  var dots=[];
+  for(var i=0;i<N;i++){
+    var d=document.createElement('button');
+    d.className='sdndot';
+    d.style.cssText='width:'+(i===0?'22px':'7px')+';height:7px;border-radius:'+(i===0?'4px':'50%')+';background:'+(i===0?dc[0]:'rgba(255,255,255,.4)')+';border:none;cursor:pointer;padding:0;transition:all .3s;';
+    (function(idx){d.onclick=function(e){e.preventDefault();e.stopPropagation();go(idx);};})(i);
+    nav.appendChild(d);
+    dots.push(d);
+  }
+  function upd(){
+    for(var i=0;i<dots.length;i++){
+      var on=i===cur;
+      dots[i].style.background=on?dc[cur]:'rgba(255,255,255,.4)';
+      dots[i].style.width=on?'22px':'7px';
+      dots[i].style.borderRadius=on?'4px':'50%';
+    }
+  }
+  function go(n){
+    cur=(n+N)%N;
+    st.style.transition='transform .65s cubic-bezier(.77,0,.18,1)';
+    st.style.transform='translateX(-'+cur*100+'%)';
+    upd();
+    clearInterval(tmr);
+    tmr=setInterval(function(){go(cur+1);},4800);
+  }
+  document.getElementById('sdn-prv').onclick=function(e){e.preventDefault();e.stopPropagation();go(cur-1);};
+  document.getElementById('sdn-nxt').onclick=function(e){e.preventDefault();e.stopPropagation();go(cur+1);};
+  var tx=0;
+  var wrap=document.getElementById('sdnslider');
+  wrap.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  wrap.addEventListener('touchend',function(e){
+    var d=tx-e.changedTouches[0].clientX;
+    if(Math.abs(d)>40){go(d>0?cur+1:cur-1);}
+  },{passive:true});
+  tmr=setInterval(function(){go(cur+1);},4800);
+})();
+</script>
