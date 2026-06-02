@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suna'dan Doğal Ürünler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --h: 500px;
+    --slide-duration: 7000ms;
+    --transition: 900ms;
+  }
+
+  @media (max-width: 768px) {
+    :root { --h: 834px; }
+  }
+
+  html, body {
+    width: 100%;
+    height: var(--h);
+    overflow: hidden;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .slider {
+    position: relative;
+    width: 100%;
+    height: var(--h);
+    overflow: hidden;
+  }
+
+  /* ========== SLIDES ========== */
+  .slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity var(--transition) cubic-bezier(.4,0,.2,1),
+                transform var(--transition) cubic-bezier(.4,0,.2,1);
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .slide.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+  }
+
+  /* ========== SLIDE 1 — REÇELLER ========== */
+  .s1 { background: #7a2010; }
+  .s1::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 30%, #c04020 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 10% 80%, #3d0808 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .s1 .bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1.5' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* ========== SLIDE 2 — KATKISIZ ========== */
+  .s2 { background: #0f5c2e; }
+  .s2::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 20% 20%, #1a9048 0%, transparent 60%),
+      radial-gradient(ellipse 60% 70% at 85% 90%, #053818 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .s2 .bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 Q35 15 30 25 Q25 15 30 5Z' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* ========== SLIDE 3 — SOSLAR ========== */
+  .s3 { background: #2d0a00; }
+  .s3::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 60% 20%, #7a2800 0%, transparent 55%),
+      radial-gradient(ellipse 40% 60% at 5% 70%, #1a0500 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .s3 .bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='22' y='22' width='6' height='6' rx='1' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* ========== SLIDE 4 — NEDEN SUNA'DAN ========== */
+  .s4 { background: #1a1035; }
+  .s4::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 20%, #3a1a70 0%, transparent 55%),
+      radial-gradient(ellipse 50% 50% at 10% 80%, #0a0820 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .s4 .bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 44 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='22,4 26,18 40,18 29,27 33,41 22,32 11,41 15,27 4,18 18,18' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* ========== SLIDE 5 — AVANTAJLAR ========== */
+  .s5 { background: #0c2d4a; }
+  .s5::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 30% 10%, #1a5080 0%, transparent 55%),
+      radial-gradient(ellipse 50% 70% at 90% 90%, #040f1a 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .s5 .bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='30' height='52' viewBox='0 0 30 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 0 L30 26 L15 52 L0 26Z' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* ========== INNER LAYOUT ========== */
+  .slide-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 32px 20px;
+    gap: 0;
+  }
+
+  @media (max-width: 768px) {
+    .slide-inner { padding: 28px 20px 20px; }
+  }
+
+  /* TOP SECTION */
+  .top-section {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    width: fit-content;
+  }
+
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  .slide-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 46px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+
+  .slide-title em {
+    font-style: italic;
+    opacity: 0.85;
+  }
+
+  .slide-desc {
+    font-size: clamp(13px, 2vw, 15px);
+    color: rgba(255,255,255,0.82);
+    line-height: 1.6;
+    max-width: 560px;
+    font-weight: 600;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.95);
+    color: #1a1a1a;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 11px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    width: fit-content;
+    margin-top: 4px;
+    transition: transform .2s, box-shadow .2s, background .2s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    background: #fff;
+  }
+
+  .cta-btn svg { width: 16px; height: 16px; }
+
+  /* BOTTOM SECTION */
+  .bottom-section {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  /* ===== SLIDE 1 BOTTOM: JAR GRID ===== */
+  .jam-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    height: 100%;
+    align-items: stretch;
+  }
+
+  @media (max-width: 768px) {
+    .jam-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  }
+
+  .jam-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 8px;
+    transition: transform .2s, background .2s;
+    cursor: default;
+  }
+
+  .jam-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.18); }
+
+  .jam-icon { font-size: 32px; line-height: 1; }
+
+  .jam-label {
+    font-size: 11px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.9);
+    text-align: center;
+    line-height: 1.3;
+    letter-spacing: 0.3px;
+  }
+
+  .jam-tag {
+    font-size: 9px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ===== SLIDE 2 BOTTOM: PRINCIPLES ===== */
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .principles-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .principle-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 18px;
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform .2s;
+  }
+
+  .principle-card:hover { transform: translateY(-3px); }
+
+  .principle-icon {
+    font-size: 36px;
+    line-height: 1;
+  }
+
+  .principle-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .principle-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.5;
+    font-weight: 600;
+  }
+
+  .principle-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: auto;
+  }
+
+  .pill {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 3px 8px;
+    border-radius: 999px;
+  }
+
+  /* ===== SLIDE 3 BOTTOM: SAUCE ROW ===== */
+  .sauce-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .sauce-row { grid-template-columns: repeat(2, 1fr); }
+    .sauce-row .sauce-featured { grid-column: 1 / -1; }
+  }
+
+  .sauce-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform .2s;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .sauce-card:hover { transform: translateY(-3px); }
+
+  .sauce-featured {
+    background: rgba(200, 60, 0, 0.3);
+    border-color: rgba(255, 120, 60, 0.35);
+  }
+
+  .sauce-emoji { font-size: 34px; line-height: 1; }
+  .sauce-name { font-size: 13px; font-weight: 800; color: #fff; line-height: 1.2; }
+  .sauce-sub { font-size: 11px; color: rgba(255,255,255,0.65); font-weight: 600; line-height: 1.4; }
+
+  .sauce-badge {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ff9966;
+    background: rgba(255,100,30,0.2);
+    border: 1px solid rgba(255,100,30,0.3);
+    padding: 3px 8px;
+    border-radius: 999px;
+    width: fit-content;
+    margin-top: auto;
+  }
+
+  /* ===== SLIDE 4 BOTTOM: WHY US ===== */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .why-grid { grid-template-columns: 1fr; grid-template-rows: repeat(4, auto); }
+  }
+
+  .why-card {
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 18px;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform .2s;
+  }
+
+  .why-card:hover { transform: translateY(-2px); }
+
+  .why-card.hero-card {
+    background: rgba(100,60,200,0.2);
+    border-color: rgba(150,100,255,0.25);
+    grid-row: 1 / 3;
+    justify-content: center;
+  }
+
+  .why-icon { font-size: 32px; }
+  .why-title { font-size: 15px; font-weight: 800; color: #fff; }
+  .why-text { font-size: 12px; color: rgba(255,255,255,0.72); line-height: 1.5; font-weight: 600; }
+
+  .stars {
+    display: flex;
+    gap: 3px;
+    margin-top: 4px;
+  }
+
+  .stars span { color: #ffd700; font-size: 14px; }
+
+  .big-stat {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    margin: 8px 0 4px;
+  }
+
+  .stat-label { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 1px; }
+
+  /* ===== SLIDE 5 BOTTOM: ADVANTAGES ===== */
+  .adv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .adv-grid { grid-template-columns: 1fr; }
+  }
+
+  .adv-card {
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 18px;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform .2s;
+  }
+
+  .adv-card:hover { transform: translateY(-3px); }
+
+  .adv-icon { font-size: 34px; }
+  .adv-title { font-size: 15px; font-weight: 800; color: #fff; }
+
+  .adv-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: auto;
+  }
+
+  .adv-list li {
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    font-weight: 600;
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    line-height: 1.4;
+  }
+
+  .adv-list li::before {
+    content: '✓';
+    color: #5ce0a0;
+    font-weight: 900;
+    font-size: 11px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  /* ========== NAVIGATION ========== */
+  .nav-dots {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.35);
+    border: none;
+    cursor: pointer;
+    transition: all .3s;
+    padding: 0;
+  }
+
+  .dot.active {
+    width: 24px;
+    background: rgba(255,255,255,0.9);
+  }
+
+  /* NAV ARROWS */
+  .nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s, transform .2s;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .nav-arrow:hover { background: rgba(255,255,255,0.22); transform: translateY(-50%) scale(1.1); }
+  .nav-prev { left: 12px; }
+  .nav-next { right: 12px; }
+
+  /* PROGRESS BAR */
+  .progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: rgba(255,255,255,0.7);
+    width: 0%;
+    z-index: 20;
+    transition: none;
+  }
+
+  .progress-bar.running {
+    transition: width var(--slide-duration) linear;
+    width: 100%;
+  }
+
+  /* ENTRY ANIMATIONS */
+  .slide.active .badge,
+  .slide.active .slide-title,
+  .slide.active .slide-desc,
+  .slide.active .cta-btn {
+    animation: fadeUp .6s cubic-bezier(.22,1,.36,1) both;
+  }
+
+  .slide.active .badge { animation-delay: .1s; }
+  .slide.active .slide-title { animation-delay: .2s; }
+  .slide.active .slide-desc { animation-delay: .3s; }
+  .slide.active .cta-btn { animation-delay: .4s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .slide.active .jam-card,
+  .slide.active .principle-card,
+  .slide.active .sauce-card,
+  .slide.active .why-card,
+  .slide.active .adv-card {
+    animation: fadeUp .5s cubic-bezier(.22,1,.36,1) both;
+  }
+
+  .slide.active .jam-card:nth-child(1) { animation-delay: .45s; }
+  .slide.active .jam-card:nth-child(2) { animation-delay: .50s; }
+  .slide.active .jam-card:nth-child(3) { animation-delay: .55s; }
+  .slide.active .jam-card:nth-child(4) { animation-delay: .60s; }
+  .slide.active .jam-card:nth-child(5) { animation-delay: .65s; }
+  .slide.active .jam-card:nth-child(6) { animation-delay: .70s; }
+
+  .slide.active .principle-card:nth-child(1) { animation-delay: .45s; }
+  .slide.active .principle-card:nth-child(2) { animation-delay: .52s; }
+  .slide.active .principle-card:nth-child(3) { animation-delay: .59s; }
+  .slide.active .principle-card:nth-child(4) { animation-delay: .66s; }
+
+  .slide.active .sauce-card:nth-child(1) { animation-delay: .45s; }
+  .slide.active .sauce-card:nth-child(2) { animation-delay: .51s; }
+  .slide.active .sauce-card:nth-child(3) { animation-delay: .57s; }
+  .slide.active .sauce-card:nth-child(4) { animation-delay: .63s; }
+  .slide.active .sauce-card:nth-child(5) { animation-delay: .69s; }
+
+  .slide.active .why-card:nth-child(1) { animation-delay: .45s; }
+  .slide.active .why-card:nth-child(2) { animation-delay: .55s; }
+  .slide.active .why-card:nth-child(3) { animation-delay: .65s; }
+
+  .slide.active .adv-card:nth-child(1) { animation-delay: .45s; }
+  .slide.active .adv-card:nth-child(2) { animation-delay: .55s; }
+  .slide.active .adv-card:nth-child(3) { animation-delay: .65s; }
+
+</style>
+</head>
+<body>
+
+<div class="slider" id="slider">
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- ===================== SLIDE 1: REÇELLER ===================== -->
+  <div class="slide s1 active">
+    <div class="bg-pattern"></div>
+    <div class="slide-inner">
+
+      <div class="top-section">
+        <div class="badge"><span class="badge-dot"></span>🍓 Suna'dan Doğal Ürünler</div>
+        <h2 class="slide-title">Reçeller &amp; <em>Marmelatlar</em></h2>
+        <p class="slide-desc">Meyvenin en taze halini ocak başında pişiriyorum. Hiçbir katkı, hiçbir boyar madde — sadece meyve, şeker ve sevgi.</p>
+        <a href="https://sunadandogalurunler.com/kategori/recel-marmelat" target="_top" class="cta-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Reçelleri İncele
+        </a>
+      </div>
+
+      <div class="bottom-section">
+        <div class="jam-grid">
+          <div class="jam-card">
+            <span class="jam-icon">🍑</span>
+            <span class="jam-label">Kayısı Reçeli</span>
+            <span class="jam-tag">Sezonluk</span>
+          </div>
+          <div class="jam-card">
+            <span class="jam-icon">🌹</span>
+            <span class="jam-label">Gül Reçeli</span>
+            <span class="jam-tag">Özel</span>
+          </div>
+          <div class="jam-card">
+            <span class="jam-icon">🫐</span>
+            <span class="jam-label">Böğürtlen</span>
+            <span class="jam-tag">Yaban</span>
+          </div>
+          <div class="jam-card">
+            <span class="jam-icon">🍐</span>
+            <span class="jam-label">Ayva Reçeli</span>
+            <span class="jam-tag">Klasik</span>
+          </div>
+          <div class="jam-card">
+            <span class="jam-icon">🌰</span>
+            <span class="jam-label">Kestane</span>
+            <span class="jam-tag">Kış</span>
+          </div>
+          <div class="jam-card">
+            <span class="jam-icon">🫙</span>
+            <span class="jam-label">Cevizli İncir</span>
+            <span class="jam-tag">Geleneksel</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== SLIDE 2: KATKISIZ ===================== -->
+  <div class="slide s2">
+    <div class="bg-pattern"></div>
+    <div class="slide-inner">
+
+      <div class="top-section">
+        <div class="badge"><span class="badge-dot"></span>🌿 Üretim Felsefem</div>
+        <h2 class="slide-title">Katkısız, <em>Gerçek</em> Lezzet</h2>
+        <p class="slide-desc">Her kavanozu kendi ellerimle hazırlıyorum. Anneannelerden öğrenilen tarifler, toprağından çıkmış malzemeler, hiç ödün verilmeyen titizlik.</p>
+        <a href="https://sunadandogalurunler.com/hakkimizda" target="_top" class="cta-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Hikâyemi Oku
+        </a>
+      </div>
+
+      <div class="bottom-section">
+        <div class="principles-grid">
+          <div class="principle-card">
+            <div class="principle-icon">🚫</div>
+            <div class="principle-title">Sıfır Katkı Maddesi</div>
+            <div class="principle-text">Koruyucu, renklendirici, tatlandırıcı — hiçbiri yok. Kavanozda ne gösteriyorsam o var.</div>
+            <div class="principle-pills"><span class="pill">E-kodsuz</span><span class="pill">Doğal</span></div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">🏡</div>
+            <div class="principle-title">El Yapımı Üretim</div>
+            <div class="principle-text">Endüstriyel makine yok. Her kavanoz tek tek hazırlanır, kontrol edilir, mühürlenir.</div>
+            <div class="principle-pills"><span class="pill">Küçük Parti</span><span class="pill">Özenli</span></div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">🌾</div>
+            <div class="principle-title">Sezonluk Malzeme</div>
+            <div class="principle-text">Mevsiminde toplandı mı? Ancak o zaman kavanoza girer. Yıl boyu aynı kalite yok, gerçek kalite var.</div>
+            <div class="principle-pills"><span class="pill">Taze</span><span class="pill">Yerel</span></div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-icon">👵</div>
+            <div class="principle-title">Geleneksel Tarifler</div>
+            <div class="principle-text">Reçeteleri anneannemden öğrendim. Acuka tarifi dedemden kalma. Tarih ve lezzet bir arada.</div>
+            <div class="principle-pills"><span class="pill">Geleneksel</span><span class="pill">Köklü</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== SLIDE 3: SOSLAR ===================== -->
+  <div class="slide s3">
+    <div class="bg-pattern"></div>
+    <div class="slide-inner">
+
+      <div class="top-section">
+        <div class="badge"><span class="badge-dot"></span>🫑 Kışlık Hazırlıklar</div>
+        <h2 class="slide-title">Soslar, Turşular <em>&amp; Kışlıklar</em></h2>
+        <p class="slide-desc">Yazın bereketi kışa taşınıyor. Acuka'dan közlenmiş patlıcana, narın ekşisinden tarhana çorbasına kadar sofralarınızı zenginleştiriyorum.</p>
+        <a href="https://sunadandogalurunler.com/kategori/soslar-kisliklar" target="_top" class="cta-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Kışlıkları Gör
+        </a>
+      </div>
+
+      <div class="bottom-section">
+        <div class="sauce-row">
+          <div class="sauce-card sauce-featured">
+            <span class="sauce-emoji">🌶️</span>
+            <span class="sauce-name">Acuka</span>
+            <span class="sauce-sub">Geleneksel Antep usulü. Közlenmiş biber, ceviz ve baharatla hazırlanır.</span>
+            <span class="sauce-badge">⭐ Çok Satan</span>
+          </div>
+          <div class="sauce-card">
+            <span class="sauce-emoji">🍆</span>
+            <span class="sauce-name">Közlenmiş Patlıcan & Kapya</span>
+            <span class="sauce-sub">Kor ateşte közlenmiş, hazır hazır sofrada.</span>
+            <span class="sauce-badge">Kışlık</span>
+          </div>
+          <div class="sauce-card">
+            <span class="sauce-emoji">🍅</span>
+            <span class="sauce-name">Domates Sosu</span>
+            <span class="sauce-sub">Bahçe domatesi, taze fesleğen. Makarna için mükemmel.</span>
+            <span class="sauce-badge">Ev yapımı</span>
+          </div>
+          <div class="sauce-card">
+            <span class="sauce-emoji">🥘</span>
+            <span class="sauce-name">Menemen Sosu</span>
+            <span class="sauce-sub">Kahvaltı sofrasının vazgeçilmezi. Aç kavanozu, pişir, ye.</span>
+            <span class="sauce-badge">Pratik</span>
+          </div>
+          <div class="sauce-card">
+            <span class="sauce-emoji">🫙</span>
+            <span class="sauce-name">Nar Ekşisi & Tarhana</span>
+            <span class="sauce-sub">Doğal fermente nar ekşisi ve ev tarhanası.</span>
+            <span class="sauce-badge">Fermente</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== SLIDE 4: NEDEN SUNA'DAN ===================== -->
+  <div class="slide s4">
+    <div class="bg-pattern"></div>
+    <div class="slide-inner">
+
+      <div class="top-section">
+        <div class="badge"><span class="badge-dot"></span>💜 Neden Bizi Seçiyorsunuz?</div>
+        <h2 class="slide-title">Güven, <em>Şeffaflık</em> &amp; Lezzet</h2>
+        <p class="slide-desc">Binlerce mutfağa giren ürünlerimle kazandığım güven, en büyük sermayem. Her kavanoz arkasında duracağıma söz veriyorum.</p>
+        <a href="https://sunadandogalurunler.com/yorumlar" target="_top" class="cta-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Yorumları Oku
+        </a>
+      </div>
+
+      <div class="bottom-section">
+        <div class="why-grid">
+          <div class="why-card hero-card">
+            <div class="why-icon">⭐</div>
+            <div class="big-stat">4.9</div>
+            <div class="stat-label">Ortalama Müşteri Puanı</div>
+            <div class="stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <div class="why-text" style="margin-top:8px">Binlerce mutlu müşterimizin verdiği puan. Ürünlerimizin kalitesi konuşuyor.</div>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">📦</div>
+            <div class="why-title">Güvenli Paketleme</div>
+            <div class="why-text">Her kavanoz özenle paketlenir, kırılmaz köpük ambalajla kargo yolculuğunu güvenle tamamlar.</div>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">🔄</div>
+            <div class="why-title">Koşulsuz İade</div>
+            <div class="why-text">Ürünümüzden memnun kalmadıysanız, hiç soru sormadan iade alıyoruz. Müşteri memnuniyeti her şeyin önünde.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== SLIDE 5: AVANTAJLAR ===================== -->
+  <div class="slide s5">
+    <div class="bg-pattern"></div>
+    <div class="slide-inner">
+
+      <div class="top-section">
+        <div class="badge"><span class="badge-dot"></span>🛒 Alışveriş Ayrıcalığı</div>
+        <h2 class="slide-title">Kolay Sipariş, <em>Hızlı</em> Teslimat</h2>
+        <p class="slide-desc">Sipariş vermek çocuk oyuncağı, teslimat Türkiye'nin dört bir yanına. Hediye seçeneğiyle sevdiklerinizi de sevindirin.</p>
+        <a href="https://sunadandogalurunler.com/urunler" target="_top" class="cta-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Alışverişe Başla
+        </a>
+      </div>
+
+      <div class="bottom-section">
+        <div class="adv-grid">
+          <div class="adv-card">
+            <div class="adv-icon">🚚</div>
+            <div class="adv-title">Hızlı Kargo</div>
+            <ul class="adv-list">
+              <li>Sipariş günü hazırlanır</li>
+              <li>Türkiye geneli teslimat</li>
+              <li>Takip numarası SMS ile bildirilir</li>
+              <li>Kırılmaz ambalaj garantisi</li>
+            </ul>
+          </div>
+          <div class="adv-card">
+            <div class="adv-icon">🎁</div>
+            <div class="adv-title">Hediye Paketi</div>
+            <ul class="adv-list">
+              <li>Özel hediye kutusu seçeneği</li>
+              <li>El yazısıyla kişisel not</li>
+              <li>Sevdiklerinize özel seçkiler</li>
+              <li>Doğum günü, bayram, tebrik</li>
+            </ul>
+          </div>
+          <div class="adv-card">
+            <div class="adv-icon">💳</div>
+            <div class="adv-title">Güvenli Ödeme</div>
+            <ul class="adv-list">
+              <li>3D Secure korumalı ödeme</li>
+              <li>Kredi/banka kartı & havale</li>
+              <li>Toplu sipariş indirimi</li>
+              <li>Fatura seçeneği mevcuttur</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Önceki">&#8249;</button>
+  <button class="nav-arrow nav-next" id="nextBtn" aria-label="Sonraki">&#8250;</button>
+
+  <div class="nav-dots" id="navDots">
+    <button class="dot active" data-idx="0" aria-label="1"></button>
+    <button class="dot" data-idx="1" aria-label="2"></button>
+    <button class="dot" data-idx="2" aria-label="3"></button>
+    <button class="dot" data-idx="3" aria-label="4"></button>
+    <button class="dot" data-idx="4" aria-label="5"></button>
+  </div>
+
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  const progressBar = document.getElementById('progressBar');
+  let current = 0;
+  let timer = null;
+  let progressTimer = null;
+  const DURATION = 7000;
+
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    resetProgress();
+  }
+
+  function resetProgress() {
+    progressBar.classList.remove('running');
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    // force reflow
+    void progressBar.offsetWidth;
+    progressBar.style.setProperty('--slide-duration', DURATION + 'ms');
+    setTimeout(() => {
+      progressBar.classList.add('running');
+    }, 30);
+  }
+
+  function startAuto() {
+    clearInterval(timer);
+    timer = setInterval(() => {
+      goTo(current + 1);
+    }, DURATION);
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      goTo(parseInt(dot.dataset.idx));
+      startAuto();
+    });
+  });
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    goTo(current - 1);
+    startAuto();
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    goTo(current + 1);
+    startAuto();
+  });
+
+  // Touch swipe
+  let touchStartX = 0;
+  const sliderEl = document.getElementById('slider');
+  sliderEl.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  sliderEl.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      goTo(diff > 0 ? current + 1 : current - 1);
+      startAuto();
+    }
+  }, { passive: true });
+
+  // Init
+  resetProgress();
+  startAuto();
+</script>
+</body>
+</html>
